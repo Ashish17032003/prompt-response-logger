@@ -1,0 +1,67 @@
+<div style="margin-top: 10em; margin-left: 10em">
+  <mat-form-field appearance="outline" style="width: 80%">
+    <mat-label>Ask a question</mat-label>
+    <input matInput [formControl]="chatControl" />
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="onSubmit()"
+    style="margin-left: 10px"
+  >
+    Generate
+  </button>
+</div>
+
+<table mat-table [dataSource]="chatList" class="mat-elevation-z8" style="margin-top: 10px;">
+
+  <ng-container matColumnDef="ChatId">
+    <th mat-header-cell *matHeaderCellDef>Chat ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.ChatId }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="CreatedAt">
+    <th mat-header-cell *matHeaderCellDef>Created At</th>
+    <td mat-cell *matCellDef="let element">{{ element.CreatedAt }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Status">
+    <th mat-header-cell *matHeaderCellDef>Status</th>
+    <td mat-cell *matCellDef="let element">{{ element.Status }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Prompt">
+    <th mat-header-cell *matHeaderCellDef>Prompt</th>
+    <td mat-cell *matCellDef="let element">{{ element.Prompt }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Response">
+    <th mat-header-cell *matHeaderCellDef>Response</th>
+    <td mat-cell *matCellDef="let element">{{ element.Response }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Model">
+    <th mat-header-cell *matHeaderCellDef>Model</th>
+    <td mat-cell *matCellDef="let element">{{ element.Model }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="InputTokens">
+    <th mat-header-cell *matHeaderCellDef>Input Tokens</th>
+    <td mat-cell *matCellDef="let element">{{ element.InputTokens }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="PromptTokens">
+    <th mat-header-cell *matHeaderCellDef>Prompt Tokens</th>
+    <td mat-cell *matCellDef="let element">{{ element.PromptTokens }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="Latency">
+    <th mat-header-cell *matHeaderCellDef>Latency</th>
+    <td mat-cell *matCellDef="let element">{{ element.Latency }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
