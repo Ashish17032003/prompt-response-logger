@@ -1,3 +1,3 @@
 # prompt-response-logger
 
-### Prompting and Logging 
+### Prompting and Logging :/
